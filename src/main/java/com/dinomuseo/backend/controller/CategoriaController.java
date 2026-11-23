@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Categorías", description = "Tipos de visita. Leer es público, modificar solo admin")
+@Tag(name = "Categorías", description = "Tipos de visita. Leer es público, modificar solo ADMIN")
 @RestController
 @RequestMapping("/api/v1/categorias")
 public class CategoriaController {
@@ -38,20 +38,20 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.buscar(id));
     }
 
-    @Operation(summary = "Crea una categoría (Admin)")
+    @Operation(summary = "Crea una categoría (ADMIN)")
     @ApiResponse(responseCode = "201", description = "Creada")
     @PostMapping
     public ResponseEntity<Categoria> crear(@Valid @RequestBody Categoria categoria) {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.crear(categoria));
     }
 
-    @Operation(summary = "Actuliza una categoria (Admin")
+    @Operation(summary = "Actuliza una categoria (ADMIN")
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> actualizar(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
         return  ResponseEntity.ok(categoriaService.actualizar(id, categoria));
     }
 
-    @Operation(summary = "Elima una categoria sin entradas (Admin)")
+    @Operation(summary = "Elima una categoria sin entradas (ADMIN)")
     @ApiResponse(responseCode = "204", description = "Eliminada")
     @ApiResponse(responseCode = "409", description = "Tiene entradas asociadas")
     @DeleteMapping("/{id}")
