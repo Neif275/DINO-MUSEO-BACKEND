@@ -28,7 +28,7 @@ public class Boleta {
     private LocalDateTime fecha;
 
     @Column(name = "fecha_visita", nullable = false)
-    private LocalDateTime fechaVisita;
+    private LocalDate fechaVisita;
 
     @Column(nullable = false)
     private Integer total;
